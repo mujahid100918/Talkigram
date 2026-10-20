@@ -1,0 +1,150 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Unbounded", system-ui, sans-serif;
+  --font-sans: "Manrope", system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-violet: var(--violet);
+  --color-cyan: var(--cyan);
+  --color-teal: var(--teal);
+  --color-verification: var(--verification);
+  --color-online: var(--online);
+  --color-surface: var(--surface);
+  --color-ring-offset-background: var(--background);
+}
+
+/* Talkigram brand: #496BBF. `--cyan`/`--teal` names are kept for existing utility classes. */
+:root {
+  --radius: 1rem;
+  --brand: #496bbf;
+  --background: #f7f8fc;
+  --foreground: #10172a;
+  --surface: #eceff8;
+  --card: #ffffff;
+  --card-foreground: #10172a;
+  --popover: #ffffff;
+  --popover-foreground: #10172a;
+  --cyan: #3f5fae;
+  --teal: #5a7dd1;
+  --violet: #5a7dd1;
+  --verification: #496bbf;
+  --online: oklch(0.68 0.17 150);
+  --primary: var(--brand);
+  --primary-foreground: #ffffff;
+  --secondary: #e4e9f6;
+  --secondary-foreground: #10172a;
+  --muted: #e9ecf5;
+  --muted-foreground: #5b6479;
+  --accent: #dfe6f7;
+  --accent-foreground: #24386b;
+  --destructive: oklch(0.6 0.22 20);
+  --destructive-foreground: #ffffff;
+  --border: rgb(73 107 191 / 16%);
+  --input: rgb(73 107 191 / 22%);
+  --ring: var(--brand);
+  --gradient-neon: linear-gradient(135deg, #5a7dd1, #3a58a3);
+  --glow-violet: 0 0 24px -6px color-mix(in oklab, var(--brand) 55%, transparent);
+  --glow-cyan: 0 0 24px -6px color-mix(in oklab, var(--brand) 55%, transparent);
+}
+
+.dark {
+  --background: #0b1020;
+  --foreground: #eef1f8;
+  --surface: #141b30;
+  --card: #121a2e;
+  --card-foreground: #eef1f8;
+  --popover: #121a2e;
+  --popover-foreground: #eef1f8;
+  --cyan: #8fa8e8;
+  --teal: #6b8ad6;
+  --violet: #6b8ad6;
+  --verification: #7b97df;
+  --online: oklch(0.8 0.18 150);
+  --primary: var(--brand);
+  --primary-foreground: #ffffff;
+  --secondary: #1b2440;
+  --secondary-foreground: #eef1f8;
+  --muted: #18203a;
+  --muted-foreground: #98a2bd;
+  --accent: #1f2b4d;
+  --accent-foreground: #dbe3f8;
+  --destructive: oklch(0.65 0.22 20);
+  --destructive-foreground: #ffffff;
+  --border: rgb(143 168 232 / 12%);
+  --input: rgb(143 168 232 / 18%);
+  --ring: #6b8ad6;
+  --gradient-neon: linear-gradient(135deg, #8fa8e8, #496bbf);
+  --glow-violet: 0 0 24px -4px color-mix(in oklab, var(--brand) 70%, transparent);
+  --glow-cyan: 0 0 24px -4px color-mix(in oklab, var(--brand) 70%, transparent);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html, body { background-color: var(--color-background); color: var(--color-foreground); font-family: var(--font-sans); }
+  body { -webkit-tap-highlight-color: transparent; }
+  ::selection { background-color: color-mix(in oklab, var(--cyan) 35%, transparent); }
+}
+
+@keyframes marquee {
+  0%, 15% { transform: translateX(0); }
+  100% { transform: translateX(-60%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [class*="animate-[marquee"], [class*="animate-[spin"] { animation: none !important; }
+}
+
+@utility bg-neon { background-image: var(--gradient-neon); }
+@utility text-neon {
+  background-image: var(--gradient-neon);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@utility glow-violet { box-shadow: var(--glow-violet); }
+@utility glow-cyan { box-shadow: var(--glow-cyan); }
+@utility ring-neon {
+  background-image: var(--gradient-neon);
+  padding: 2px;
+  border-radius: 9999px;
+}
+@utility glass {
+  background-color: color-mix(in oklab, var(--background) 72%, transparent);
+  backdrop-filter: blur(18px);
+}
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+@utility grid-bg {
+  background-image: radial-gradient(color-mix(in oklab, var(--cyan) 22%, transparent) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
