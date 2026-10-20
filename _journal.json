@@ -1,0 +1,55 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1791919925518,
+      "tag": "0000_social_schema",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791923372004,
+      "tag": "0001_restrict_media_reads_and_like_visibility",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1791923642485,
+      "tag": "0002_require_sign_in_for_social_reads",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1791924429616,
+      "tag": "0003_talkigram_newsfeed",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1791963439011,
+      "tag": "0004_follows_and_verification_requests",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1792049222917,
+      "tag": "0005_fix_comment_reply_recursion",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1792136327088,
+      "tag": "0006_create_notifications",
+      "breakpoints": true
+    }
+  ]
+}
